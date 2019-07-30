@@ -1,13 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
-import Navbar from './Components/Header/Navbar';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import NavBar from './Components/Navbar';
+import Home from './Components/Home';
+import About from './Components/About';
+import Contact from './Components/Contact';
+import BookNow from './Components/BookNow';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-    </div>
+    <Fragment>
+      <NavBar/>
+      <Router>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/booknow" component={BookNow} />
+        </div>
+      </Router>
+    </Fragment>
   );
 }
 
